@@ -1,27 +1,40 @@
 export const projects = [
   {
     number: "01",
-    title: "AWS Cloud Infrastructure Platform",
+    title: "AWS DevOps Capstone Platform",
     shortDescription:
-      "A containerised AWS application platform provisioned using Infrastructure as Code and designed for scalable application delivery.",
+      "A production-style containerised web application deployed on AWS using Terraform, Docker, ECS Fargate and an automated GitHub Actions CI/CD pipeline.",
+    highlights: [
+      "Provisioned AWS infrastructure using Terraform",
+      "Deployed Docker workloads to ECS Fargate",
+      "Implemented GitHub Actions CI/CD with AWS OIDC authentication",
+      "Used Git SHA-based image versioning in Amazon ECR",
+      "Configured private subnets, VPC endpoints and CloudWatch logging",
+      "Resolved ECS, ALB, ECR and Terraform deployment issues",
+    ],
     technologies: [
       "AWS",
       "Terraform",
       "Docker",
-      "ECS",
+      "ECS Fargate",
       "ECR",
+      "GitHub Actions",
+      "CloudWatch",
       "Application Load Balancer",
-      "Route 53",
+      "VPC",
+      "IAM",
+      "Nginx",
     ],
-    category: "Cloud Infrastructure",
-    github: "https://github.com/KennySuleiman",
+    category: "AWS DevOps",
+    github: "https://github.com/KennySuleiman/zsoftly-capstone",
+    live: "http://zsoftly-alb-749566002.us-east-1.elb.amazonaws.com/",
+    caseStudy: "/projects/aws-devops-capstone",
   },
-
   {
     number: "02",
     title: "Azure Kubernetes Application",
     shortDescription:
-      "A containerised application deployed to Azure Kubernetes Service using Terraform and automated CI/CD workflows.",
+      "A containerised Node.js REST API with Azure Kubernetes Service infrastructure provisioned using Terraform and an automated GitHub Actions pipeline for Docker image builds and publishing.",
     technologies: [
       "Azure",
       "AKS",
@@ -31,8 +44,8 @@ export const projects = [
     ],
     category: "Cloud & Kubernetes",
     github: "https://github.com/KennySuleiman/Todo-app-source",
+    caseStudy: "/projects/azure-kubernetes-application",
   },
-
   {
     number: "03",
     title: "DevOps CI/CD Platform",

@@ -15,9 +15,8 @@ export default function Projects() {
             </h2>
 
             <p className="mt-4 max-w-2xl leading-7 text-slate-400">
-              Practical cloud and DevOps projects demonstrating
-              infrastructure automation, containerisation, Kubernetes and
-              continuous delivery.
+              Practical cloud and DevOps projects demonstrating infrastructure
+              automation, containerisation, Kubernetes and continuous delivery.
             </p>
           </div>
 
@@ -31,49 +30,84 @@ export default function Projects() {
           </a>
         </div>
 
-        <div className="mt-12 space-y-5">
+        <div className="mt-12 space-y-6">
           {projects.map((project) => (
             <article
               key={project.number}
-              className="group grid gap-8 rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition hover:border-cyan-400/30 md:grid-cols-[100px_1fr_auto] md:items-center"
+              className="group rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition hover:border-cyan-400/30"
             >
-              <span className="text-4xl font-bold text-slate-700 transition group-hover:text-cyan-400/50">
-                {project.number}
-              </span>
+              <div className="grid gap-8 md:grid-cols-[100px_1fr]">
+                <span className="text-4xl font-bold text-slate-700 transition group-hover:text-cyan-400/50">
+                  {project.number}
+                </span>
 
-              <div>
-                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                  {project.category}
-                </div>
+                <div>
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+                    {project.category}
+                  </div>
 
-                <h3 className="text-2xl font-bold text-white">
-                  {project.title}
-                </h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
 
-                <p className="mt-3 max-w-2xl leading-7 text-slate-400">
-                  {project.shortDescription}
-                </p>
+                  <p className="mt-3 max-w-3xl leading-7 text-slate-400">
+                    {project.shortDescription}
+                  </p>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full bg-slate-900 px-3 py-1 text-xs text-slate-400"
+                  {"highlights" in project && project.highlights && (
+                    <ul className="mt-5 grid gap-2 text-sm text-slate-400 md:grid-cols-2">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-2">
+                          <span className="text-cyan-400">✓</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.technologies.map((technology) => (
+                      <span
+                        key={technology}
+                        className="rounded-full bg-slate-900 px-3 py-1 text-xs text-slate-400"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-7 flex flex-wrap gap-5">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-cyan-400 transition hover:text-cyan-300"
                     >
-                      {technology}
-                    </span>
-                  ))}
+                      View GitHub →
+                    </a>
+
+                    {"live" in project && project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold text-white transition hover:text-cyan-300"
+                      >
+                        Live Demo →
+                      </a>
+                    )}
+
+                    {"caseStudy" in project && project.caseStudy && (
+                      <a
+                        href={project.caseStudy}
+                        className="text-sm font-semibold text-white transition hover:text-cyan-300"
+                      >
+                        View Case Study →
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-cyan-400 transition hover:text-cyan-300"
-              >
-                View project →
-              </a>
             </article>
           ))}
         </div>
@@ -81,27 +115,3 @@ export default function Projects() {
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
