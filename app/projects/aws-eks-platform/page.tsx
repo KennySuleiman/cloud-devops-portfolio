@@ -113,7 +113,18 @@ export default function AwsEksPlatformPage() {
       <section className="bg-white/[0.02]">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="text-3xl font-bold">Architecture</h2>
-
+        <figure className="mt-10">
+  <img
+    src="/projects/aws-eks-platform/overview.png"
+    alt="AWS EKS Platform Engineering architecture overview"
+    className="block h-auto w-full rounded-2xl border border-white/10"
+  />
+  <figcaption className="mt-3 text-sm text-slate-400">
+    Conceptual architecture overview. Kubernetes and GitOps
+    validated locally; AWS EKS infrastructure designed with
+    Terraform but not provisioned.
+  </figcaption>
+</figure>
           <p className="mt-6 max-w-4xl leading-8 text-slate-400">
             The project separates the locally implemented application
             delivery workflow from the planned AWS infrastructure.
