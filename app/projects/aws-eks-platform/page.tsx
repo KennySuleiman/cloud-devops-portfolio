@@ -125,6 +125,13 @@ export default function AwsEksPlatformPage() {
     alt="AWS EKS Platform Engineering architecture overview"
     className="block h-auto w-full rounded-2xl border border-white/10"
   />
+
+<figcaption className="mt-3 text-sm text-slate-400">
+    Conceptual architecture overview. Kubernetes and GitOps
+    validated locally; AWS EKS infrastructure designed with
+    Terraform but not provisioned.
+  </figcaption>
+
 </figure>
 
           <h3 className="mt-10 text-xl font-semibold">
@@ -182,11 +189,94 @@ export default function AwsEksPlatformPage() {
           </p>
         </div>
       </section>
-<figcaption className="mt-3 text-sm text-slate-400">
-    Conceptual architecture overview. Kubernetes and GitOps
-    validated locally; AWS EKS infrastructure designed with
-    Terraform but not provisioned.
-  </figcaption>
+
+      {/* IMPLEMENTATION EVIDENCE */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">
+            Implementation Evidence
+          </p>
+
+          <h2 className="mt-3 text-3xl font-bold">
+            From configuration to running workloads
+          </h2>
+
+          <p className="mt-6 max-w-4xl leading-8 text-slate-400">
+            The screenshots below show the platform running locally
+            with Kubernetes, Helm and Argo CD, alongside the Terraform
+            plan for the target AWS EKS infrastructure.
+          </p>
+
+          {/* ARGO CD */}
+          <div className="mt-12">
+            <h3 className="text-xl font-semibold">
+              GitOps delivery with Argo CD
+            </h3>
+
+            <p className="mt-3 max-w-4xl leading-7 text-slate-400">
+              Argo CD reports the platform-api application as Synced
+              and Healthy, with the deployed Kubernetes resources
+              reconciled against the desired state stored in Git.
+            </p>
+
+            <img
+              src="/projects/aws-eks-platform/argocd.png"
+              alt="Argo CD showing platform-api as Synced and Healthy"
+              className="mt-6 h-auto w-full rounded-2xl border border-white/10"
+            />
+          </div>
+
+          {/* KUBERNETES AND TERRAFORM */}
+          <div className="mt-14 grid gap-10 lg:grid-cols-2">
+
+            {/* KUBERNETES */}
+            <div>
+              <h3 className="text-xl font-semibold">
+                Kubernetes workload
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-400">
+                The deployment is running five available replicas in
+                Minikube, with all five application pods healthy and
+                exposed internally through a ClusterIP service.
+              </p>
+
+              <img
+                src="/projects/aws-eks-platform/kubernetes-pods.png"
+                alt="Kubernetes terminal showing five running platform-api pods"
+                className="mt-6 h-auto w-full rounded-2xl border border-white/10"
+              />
+            </div>
+
+            {/* TERRAFORM */}
+            <div>
+              <h3 className="text-xl font-semibold">
+                Terraform infrastructure plan
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-400">
+                Terraform successfully planned the target AWS EKS
+                infrastructure with 58 resources to add and no
+                existing resources to change or destroy.
+              </p>
+
+              <img
+                src="/projects/aws-eks-platform/terraform-plan.png"
+                alt="Terraform plan showing 58 resources to add and none to change or destroy"
+                className="mt-6 h-auto w-full rounded-2xl border border-white/10"
+              />
+            </div>
+          </div>
+
+          <p className="mt-10 max-w-4xl text-sm leading-7 text-slate-500">
+            AWS resources shown in the Terraform plan were not
+            provisioned. Kubernetes and GitOps were validated locally
+            using Minikube.
+          </p>
+        </div>
+      </section>
+
+
       {/* APPLICATION */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-20">
